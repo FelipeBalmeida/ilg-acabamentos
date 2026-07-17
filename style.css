@@ -47,7 +47,7 @@ body {
     letter-spacing: 1px;
     display: flex;
     align-items: center;
-    gap: 12px; /* Espaçamento entre o mini-logo e o texto */
+    gap: 12px;
 }
 
 .logo-texto span {
@@ -56,7 +56,7 @@ body {
 
 /* Estilo do Mini-Logo no Cabeçalho */
 .mini-logo-header {
-    height: 35px; /* Altura ideal para acompanhar o texto do cabeçalho */
+    height: 35px;
     width: auto;
     object-fit: contain;
 }
@@ -272,7 +272,7 @@ body {
     color: #ccc;
 }
 
-/* Rodapé */
+/* Rodapé e Créditos */
 footer {
     background-color: #000000;
     color: var(--cor-branco);
@@ -309,6 +309,32 @@ footer p {
 
 footer small {
     color: #666;
+    display: block;
+}
+
+.creditos-desenvolvedor {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.creditos-desenvolvedor small {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.creditos-desenvolvedor a {
+    color: var(--cor-primaria-dourado);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.creditos-desenvolvedor a:hover {
+    color: var(--cor-branco);
 }
 
 /* Responsividade */
