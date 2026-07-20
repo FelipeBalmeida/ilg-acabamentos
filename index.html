@@ -26,6 +26,14 @@
             <img src="assets/mini-logo.png" alt="Ícone ILG Acabamentos" class="mini-logo-header">
             <div>ILG <span>ACABAMENTOS</span></div>
         </a>
+        
+        <!-- Novo Menu de Navegação -->
+        <nav class="menu-navegacao">
+            <a href="#servicos">Serviços</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#diferenciais">Diferenciais</a>
+        </nav>
+
         <div class="redes-sociais">
             <!-- Ícone do Instagram -->
             <a href="https://www.instagram.com/ilgacabamentos/" target="_blank" rel="noopener noreferrer" class="icone-social instagram" aria-label="Acessar Instagram">
@@ -54,7 +62,7 @@
     </section>
 
     <!-- Seção de Serviços -->
-    <section class="servicos-container">
+    <section id="servicos" class="servicos-container">
         <h2 class="titulo-secao">Nossos Serviços</h2>
         <ul class="lista-servicos">
             <li>Assentamento de Pisos</li>
@@ -65,8 +73,40 @@
         </ul>
     </section>
 
+    <!-- Seção de Projetos Realizados -->
+    <section id="projetos" class="projetos-container">
+        <h2 class="titulo-secao">Projetos Realizados</h2>
+        <div class="grid-projetos">
+            <div class="projeto-card">
+                <!-- Adicionado o evento onClick para abrir a imagem -->
+                <img src="assets/1.jpeg" alt="Projeto Concluído 1" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/2.jpeg" alt="Projeto Concluído 2" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/3.jpeg" alt="Projeto Concluído 3" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/4.jpeg" alt="Projeto Concluído 4" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/5.jpeg" alt="Projeto Concluído 5" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/6.jpeg" alt="Projeto Concluído 6" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/7.jpeg" alt="Projeto Concluído 7" onclick="abrirLightbox(this.src)">
+            </div>
+            <div class="projeto-card">
+                <img src="assets/8.jpeg" alt="Projeto Concluído 8" onclick="abrirLightbox(this.src)">
+            </div>
+        </div>
+    </section>
+
     <!-- Seção de Diferenciais -->
-    <section class="diferenciais">
+    <section id="diferenciais" class="diferenciais">
         <h2>Por que escolher a ILG Acabamentos?</h2>
         <div class="grid-diferenciais">
             <div class="card-diferencial">
@@ -102,5 +142,25 @@
         </div>
     </footer>
 
+    <!-- Estrutura Oculta do Visualizador de Imagens (Lightbox) -->
+    <div id="lightbox-modal" class="lightbox" onclick="fecharLightbox()">
+        <span class="fechar-lightbox">&times;</span>
+        <img class="lightbox-conteudo" id="imagem-expandida" src="">
+    </div>
+
+    <!-- Script Funcional para o Visualizador de Imagens -->
+    <script>
+        function abrirLightbox(caminhoImagem) {
+            var modal = document.getElementById("lightbox-modal");
+            var imagem = document.getElementById("imagem-expandida");
+            modal.style.display = "flex";
+            imagem.src = caminhoImagem;
+        }
+
+        function fecharLightbox() {
+            var modal = document.getElementById("lightbox-modal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>

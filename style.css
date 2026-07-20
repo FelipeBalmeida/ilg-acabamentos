@@ -15,8 +15,13 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Rolagem Suave para os Links do Menu */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Evita que o cabeçalho cubra o título da seção */
+}
+
 body {
-    /* Fundo de piso de mármore direcionado para a pasta assets local */
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('assets/fundo-site.png');
     background-size: cover;
     background-position: center;
@@ -54,11 +59,29 @@ body {
     color: var(--cor-primaria-dourado);
 }
 
-/* Estilo do Mini-Logo no Cabeçalho */
 .mini-logo-header {
     height: 35px;
     width: auto;
     object-fit: contain;
+}
+
+/* Estilos do Novo Menu de Navegação */
+.menu-navegacao {
+    display: flex;
+    gap: 25px;
+}
+
+.menu-navegacao a {
+    text-decoration: none;
+    color: var(--cor-secundaria-escura);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.menu-navegacao a:hover {
+    color: var(--cor-primaria-dourado);
 }
 
 .redes-sociais {
@@ -67,7 +90,6 @@ body {
     align-items: center;
 }
 
-/* Estilo dos Ícones do Cabeçalho */
 .icone-social {
     display: inline-flex;
     align-items: center;
@@ -95,7 +117,7 @@ body {
     color: var(--cor-branco);
 }
 
-/* Seção Principal (Hero) com LOGO CENTRALIZADO */
+/* Seção Principal (Hero) */
 .hero {
     display: flex;
     flex-direction: column;
@@ -145,7 +167,6 @@ body {
     font-weight: 600;
 }
 
-/* Botão do WhatsApp Central */
 .btn-whatsapp {
     background-color: var(--cor-secundaria-escura);
     color: var(--cor-primaria-dourado);
@@ -223,6 +244,88 @@ body {
     color: var(--cor-primaria-dourado);
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+/* Seção de Projetos Realizados */
+.projetos-container {
+    padding: 80px 5%;
+    background-color: var(--cor-branco);
+}
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projeto-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background-color: var(--cor-fundo-claro);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: zoom-in; /* Indica que a imagem pode ser ampliada */
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.2);
+}
+
+.projeto-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Visualizador de Imagens em Tela Cheia (Lightbox) */
+.lightbox {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-conteudo {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    animation: zoomLightbox 0.3s ease-out;
+}
+
+@keyframes zoomLightbox {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.fechar-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.fechar-lightbox:hover {
+    color: var(--cor-primaria-dourado);
 }
 
 /* Seção de Diferenciais / Valores */
@@ -339,7 +442,14 @@ footer small {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .cabecalho-topo { flex-direction: row; justify-content: space-between; }
+    .cabecalho-topo { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    .menu-navegacao { 
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
     .logo-texto { font-size: 1rem; }
     .hero { padding: 40px 5% 60px; }
     .logo-destaque img { max-width: 250px; }
