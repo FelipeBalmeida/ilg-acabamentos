@@ -18,7 +18,7 @@
 /* Rolagem Suave para os Links do Menu */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Evita que o cabeçalho cubra o título da seção */
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -65,7 +65,7 @@ body {
     object-fit: contain;
 }
 
-/* Estilos do Novo Menu de Navegação */
+/* Menu de Navegação */
 .menu-navegacao {
     display: flex;
     gap: 25px;
@@ -266,7 +266,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     background-color: var(--cor-fundo-claro);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: zoom-in; /* Indica que a imagem pode ser ampliada */
+    cursor: zoom-in;
 }
 
 .projeto-card img {
@@ -286,23 +286,126 @@ body {
     transform: scale(1.05);
 }
 
-/* Visualizador de Imagens em Tela Cheia (Lightbox) */
+/* Estilos da Seção de Orçamento e Checkboxes Múltiplos */
+.orcamento-container {
+    padding: 80px 5%;
+    background-color: rgba(249, 249, 249, 0.9);
+    text-align: center;
+}
+
+.subtitulo-orcamento {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.form-orcamento {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--cor-branco);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupo-input label {
+    font-weight: 600;
+    color: var(--cor-secundaria-escura);
+    font-size: 0.95rem;
+}
+
+.grupo-input input {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.grupo-input input:focus {
+    border-color: var(--cor-primaria-dourado);
+}
+
+.lista-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--cor-fundo-claro);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--cor-texto);
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--cor-primaria-dourado);
+    cursor: pointer;
+}
+
+.btn-enviar-orcamento {
+    background-color: #25D366;
+    color: var(--cor-branco);
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.btn-enviar-orcamento:hover {
+    background-color: #1EBE57;
+    transform: translateY(-2px);
+}
+
+/* Visualizador de Imagens em Tela Cheia (Lightbox Avançado) */
 .lightbox {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.92);
     align-items: center;
     justify-content: center;
 }
 
 .lightbox-conteudo {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 80%;
+    max-height: 85%;
     border-radius: 5px;
     box-shadow: 0 0 25px rgba(0,0,0,0.5);
     animation: zoomLightbox 0.3s ease-out;
@@ -322,11 +425,35 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s;
+    z-index: 2010;
 }
 
 .fechar-lightbox:hover {
     color: var(--cor-primaria-dourado);
 }
+
+.botao-seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    font-size: 2.5rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 2010;
+}
+
+.botao-seta:hover {
+    background-color: var(--cor-primaria-dourado);
+    color: var(--cor-secundaria-escura);
+}
+
+.seta-esquerda { left: 30px; }
+.seta-direita { right: 30px; }
 
 /* Seção de Diferenciais / Valores */
 .diferenciais {
@@ -455,4 +582,10 @@ footer small {
     .logo-destaque img { max-width: 250px; }
     .hero h1 { font-size: 2rem; }
     .btn-whatsapp { width: 100%; justify-content: center; }
+    .botao-seta {
+        padding: 10px 15px;
+        font-size: 1.8rem;
+    }
+    .seta-esquerda { left: 10px; }
+    .seta-direita { right: 10px; }
 }
